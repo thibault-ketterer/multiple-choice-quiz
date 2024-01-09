@@ -4,11 +4,11 @@
 <head>
     <title>Firebase Realtime Database Example</title>
     <!-- Firebase SDK -->
-    <script src="./assets/js/firebase_12321312.js"</script>
     <script type="module">
         // Import the functions you need from the SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getDatabase, remove, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { firebaseConfig } from './assets/js/firebase_12321312.js';
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -100,6 +100,10 @@ function addDownloadButton(data) {
                 const displayArea = document.getElementById('dataDisplay');
                 if (data) {
                   createTable(data);
+                  document.getElementById("username").innerText = data.username;
+                  document.getElementById("score").innerText = data.score;
+                  document.getElementById("skipped").innerText = data.question_skipped;
+                  document.getElementById("answered").innerText = data.question_answered;
                   // do NOT work for now addDownloadButton(data);
                 }
                 displayArea.innerHTML = JSON.stringify(data, null, 2);
@@ -126,6 +130,10 @@ function addDownloadButton(data) {
 
     <button onclick="removeData()">NEW candidate</button>
     <p>
+    <div>User <span id="username"></span></div>
+    <div>Score <span id="score"></span></div>
+    <div>Skipped <span id="skipped"></span></div>
+    <div>Answered <span id="answered"></span></div>
     <div id="result"></div>
     </p>
     <pre style="font-size:8px" id="dataDisplay"></pre>

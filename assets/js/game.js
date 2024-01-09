@@ -14,6 +14,8 @@ let userAnswers = [];
 // Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, get, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { firebaseConfig } from './firebase_12321312.js';
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
