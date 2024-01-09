@@ -20,6 +20,7 @@
 <body>
   <main class="container">
     <div id="game" class="justify-center flex-column">
+      <h1 id="username"></h1>
       <div id="hud">
         <div class="hud-item">
 
@@ -37,7 +38,7 @@
 
           <!-- Score -->
           <p class="hud-prefix score-prefix">
-            Score
+            Score(seconds)
           </p>
           <h1 class="hud-main-text" id="score">
             100
@@ -46,26 +47,28 @@
       </div>
 
       <!-- Dummy example -->
-      <h2 id="question">What is the answer to this questions?</h2>
+      <h2 id="question">........... loading ..........</h2>
       <div class="choice-container">
         <p class="choice-prefix">A</p>
-        <p class="choice-text" data-number="1">Choice 1</p>
+        <p class="choice-text" data-number="1">.....</p>
       </div>
       <div class="choice-container">
         <p class="choice-prefix">B</p>
-        <p class="choice-text" data-number="2">Choice 2</p>
+        <p class="choice-text" data-number="2">......</p>
       </div>
       <div class="choice-container">
         <p class="choice-prefix">C</p>
-        <p class="choice-text" data-number="3">Choice 3</p>
+        <p class="choice-text" data-number="3">......</p>
       </div>
       <div class="choice-container">
         <p class="choice-prefix">D</p>
-        <p class="choice-text" data-number="4">Choice 4</p>
+        <p class="choice-text" data-number="4">la r&eacuteponse D</p>
       </div>
+        <button class="btn" id="skipBtn">Skip the question</a>
     </div>
   </main>
-  <script src="../js/game.js"></script>
+  <script src="../js/firebase_12321312.js"></script>
+  <script type="module" src="../js/game.js"></script>
 </body>
 
 </html>
