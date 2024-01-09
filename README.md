@@ -57,3 +57,26 @@ Contributions are what make the open source community such an amazing place to b
 ## 📜 License
 
 This software is licensed under the [MIT](https://github.com/kkuznets/multiple-choice-quiz/blob/master/LICENSE) © [kkuznets](https://github.com/kkuznets).
+
+# tketterer mods
+## Firebase 
+
+realtime result in firebase
+edit firebase with your config in assets/js/firebase_12321312.js
+
+## HR version
+open the "hr.html page to see the interviewed person result in realtime
+
+## load question from json
+
+laod questions from ./assets/js/quizz_questions.json
+
+## generate json from md files
+
+- https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/blob/main/linux/linux-quiz.md
+- https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/blob/main/bash/bash-quiz.md
+
+
+    python assets/js/adjusted_markdown_to_json.py > assets/js/quizz_questions.json
+
+TODO handle multiple quizz with multiple jsons
