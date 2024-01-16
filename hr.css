@@ -1,0 +1,41 @@
+#user {
+    display: table;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #f3f3f3;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-row {
+    display: table-row;
+}
+
+.user-label, .user-data {
+    display: table-cell;
+    padding: 8px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-label {
+    font-weight: bold;
+    background-color: #e7e7e7;
+    color: #333;
+    width: 150px;
+}
+
+.user-data {
+    background-color: #fff;
+    color: #555;
+}
+
+.user-row:last-child .user-label,
+.user-row:last-child .user-data {
+    border-bottom: none;
+}
+
+#result {
+    margin-top: 15px;
+}
+

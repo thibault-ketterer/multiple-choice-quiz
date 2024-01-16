@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Firebase Realtime Database Example</title>
+    <link rel="stylesheet" href="hr.css" />
     <!-- Firebase SDK -->
     <script type="module">
         // Import the functions you need from the SDKs
@@ -14,9 +15,25 @@
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
+	import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            console.log("got an user connected", user.uid);
+            document.getElementById("fbaseUser").innerText = user.uid;
+            // ...
+          } else {
+            // User is signed out
+            // ...
+          }
+        });
         // Function to write data to Firebase
         window.writeData = function() {
-            const dataRef = ref(database, 'testData/' + Date.now());
+            const dataRef = ref(database, 'userData/' + Date.now());
             set(dataRef, {
                 sampleData: document.getElementById('dataInput').value
             }).then(() => {
@@ -129,13 +146,31 @@ function addDownloadButton(data) {
     <h1>Firebase Realtime Database Example</h1>
 
     <button onclick="removeData()">NEW candidate</button>
-    <p>
-    <div>User <span id="username"></span></div>
-    <div>Score <span id="score"></span></div>
-    <div>Skipped <span id="skipped"></span></div>
-    <div>Answered <span id="answered"></span></div>
-    <div id="result"></div>
-    </p>
+    <section id="user">
+        <div class="user-row">
+            <div class="user-label">Firebase User</div>
+            <div class="user-data" id="fbaseUser"></div>
+        </div>
+        <div class="user-row">
+            <div class="user-label">User</div>
+            <div class="user-data" id="username"></div>
+        </div>
+        <div class="user-row">
+            <div class="user-label">Score</div>
+            <div class="user-data" id="score"></div>
+        </div>
+        <div class="user-row">
+            <div class="user-label">Skipped</div>
+            <div class="user-data" id="skipped"></div>
+        </div>
+        <div class="user-row">
+            <div class="user-label">Answered</div>
+            <div class="user-data" id="answered"></div>
+        </div>
+    </section>
+    <section>
+        <div id="result"></div>
+    </section>
     <pre style="font-size:8px" id="dataDisplay"></pre>
     <div id="csv"></div>
 </body>

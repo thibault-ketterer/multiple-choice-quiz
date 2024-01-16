@@ -16,10 +16,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getDatabase, get, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import { firebaseConfig } from './firebase_12321312.js';
 
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+const auth = getAuth();
+signInAnonymously(auth)
+  .then(() => {
+    console.log("logged as anonymous successfully", user);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage, "cannot authenticate");
+  });
 
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
